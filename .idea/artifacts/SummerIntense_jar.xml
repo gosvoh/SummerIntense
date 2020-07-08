@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SummerIntense:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SummerIntense_jar</output-path>
+    <root id="archive" name="SummerIntense.jar">
+      <element id="module-output" name="SummerIntense" />
+    </root>
+  </artifact>
+</component>
