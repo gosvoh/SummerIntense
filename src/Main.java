@@ -1,6 +1,4 @@
 import pokemons.Lapras;
-import pokemons.Oddish;
-import pokemons.Tyrogue;
 import ru.ifmo.se.pokemon.Battle;
 
 public class Main {

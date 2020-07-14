@@ -1,4 +1,4 @@
-package attacks;
+package attacks.special;
 
 import ru.ifmo.se.pokemon.*;
 
@@ -11,6 +11,7 @@ public class Thunderbolt extends SpecialMove {
     protected void applyOppEffects(Pokemon pokemon) {
         boolean isElectric = false;
         for (Type type : pokemon.getTypes()) {
+            //noinspection IfStatementMissingBreakInLoop
             if (type == Type.ELECTRIC) isElectric = true;
         }
 

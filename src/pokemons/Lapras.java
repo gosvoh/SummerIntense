@@ -1,9 +1,9 @@
 package pokemons;
 
-import attacks.Blizzard;
-import attacks.DragonDance;
-import attacks.DragonPulse;
-import attacks.Thunderbolt;
+import attacks.special.Blizzard;
+import attacks.status.DragonDance;
+import attacks.special.DragonPulse;
+import attacks.special.Thunderbolt;
 import ru.ifmo.se.pokemon.Pokemon;
 import ru.ifmo.se.pokemon.Type;
 

@@ -1,4 +1,4 @@
-package attacks;
+package attacks.special;
 
 import ru.ifmo.se.pokemon.*;
 
@@ -12,6 +12,7 @@ public class Blizzard extends SpecialMove {
     protected void applyOppEffects(Pokemon pokemon) {
         boolean isIce = false;
         for (Type type : pokemon.getTypes()) {
+            //noinspection IfStatementMissingBreakInLoop
             if (type == Type.ICE) isIce = true;
         }
 
