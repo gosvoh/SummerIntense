@@ -1,4 +1,4 @@
-import pokemons.Lapras;
+import pokemons.*;
 import ru.ifmo.se.pokemon.Battle;
 
 public class Main {
@@ -9,11 +9,14 @@ public class Main {
 
         Battle battle = new Battle();
 
-        Lapras lapras1 = new Lapras("Lap1");
-        Lapras lapras2 = new Lapras("Lap2");
+        battle.addAlly(new Lapras("Lap"));
+        battle.addAlly(new Tyrogue("Tyro"));
+        battle.addAlly(new Hitmontop("Hitmon"));
 
-        battle.addAlly(lapras1);
-        battle.addFoe(lapras2);
+        battle.addFoe(new Oddish("Oddi"));
+        battle.addFoe(new Gloom("Gloo"));
+        battle.addFoe(new Vileplume("Vile"));
+
         battle.go();
     }
 }
