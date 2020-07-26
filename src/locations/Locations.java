@@ -51,7 +51,7 @@ public abstract class Locations {
         StringBuilder sb = new StringBuilder();
         sb.append(name).append(":\n");
         sb.append("Персонажи:\n");
-        for (int i = 0; i < characterPointer; i++) sb.append(characters[i].getName()).append("   ");
+        for (int i = 0; i < characterPointer; i++) sb.append(characters[i].getDescription()).append("   ");
         sb.append("\n").append("Объекты: \n");
         for (int i = 0; i < entityPointer; i++) sb.append(entities[i].getName()).append("   ");
 

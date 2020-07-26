@@ -11,10 +11,10 @@ public interface ICharacter {
     IEntity getNearEntity();
     void setNearEntity(IEntity entity);
 
-    String getName();
+    String getDescription();
     void setName(String name);
 
     default void sayMsg(String message) {
-        System.out.println(message);
+        System.out.println(this + " говорит: " + message);
     }
 }

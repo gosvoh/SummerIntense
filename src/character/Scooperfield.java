@@ -8,11 +8,18 @@ import locations.Locations;
 
 public class Scooperfield extends Characters {
 
-    public Scooperfield() {
+
+    private static final Scooperfield instance = new Scooperfield();
+
+    private Scooperfield() {
         setName("Скуперфильд");
         setEmotion(Emotions.NEUTRAL);
         setCurrentLocationSilently(TheOutside.getInstance());
         setNearEntitySilently(new Table());
+    }
+
+    public static Scooperfield getInstance() {
+        return instance;
     }
 
     @Override
@@ -20,9 +27,12 @@ public class Scooperfield extends Characters {
         PotatoField field = PotatoField.getInstance();
 
         if (!getCurrentLocation().equals(field)) {
-            System.out.println("Ошибка! " + getName() + " может действовать только на локации " + field);
+            System.out.println("Ошибка! " + this + " может действовать только на локации " + field);
             return;
         }
+
+        if (field.getCharacters()[0].equals(Watchman.getInstance())) sayMsg("Нееее, я не идиот при стороже воровать");
+
         Bucket bucket = new Bucket();
         setNearEntity(bucket);
 
@@ -36,11 +46,11 @@ public class Scooperfield extends Characters {
         int offset = 0;
         for (int i = 0, bushesLength = field.getEntitiesLength(); i < bushesLength; i++) {
             Bush bush = bushes[i];
-            System.out.println(getName() + " выдернул " + bush.getName());
+            System.out.println(this + " выдернул " + bush.getName());
 
             Tubers tubers = bush.getTubers();
             Potato[] potatoes = tubers.removePotatoes();
-            System.out.println(getName() + " отделил от " + bush.getName() + " " + potatoes[0].getName() + " в количестве " + potatoes.length);
+            System.out.println(this + " отделил от " + bush.getName() + " " + potatoes[0].getName() + " в количестве " + potatoes.length);
 
             if (potatoes.length + offset <= potatoesToBucket.length)
                 System.arraycopy(potatoes, 0, potatoesToBucket, offset, potatoes.length);
@@ -51,17 +61,19 @@ public class Scooperfield extends Characters {
             offset += potatoes.length;
         }
         bucket.setPotatoes(potatoesToBucket);
-        System.out.println(getName() + " заполнил " + bucket.getName() + " объектами " + bucket.getPotatoes()[0].getName() + " в количестве " +
+        System.out.println(this + " заполнил " + bucket.getName() + " объектами " + bucket.getPotatoes()[0].getName() + " в количестве " +
                            bucket.getVolume());
         sayMsg("Ну как-то так, можно и валить отсюда");
     }
 
     @Override
     public void calculate() {
+        Watchman watchman = Watchman.getInstance();
+        if (!watchman.getGrabbedCharacter().equals(this)) return;
 
-    }
-
-    public void panicMode() {
-
+        sayMsg("Ах ты жеж, надо что-то делать!");
+        System.out.println("*" + this + " с силой выравается*");
+        watchman.letGoCharacter();
+        setCurrentLocation(TheOutside.getInstance());
     }
 }

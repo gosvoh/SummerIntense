@@ -2,27 +2,39 @@ package character;
 
 import entity.Table;
 import locations.Lodge;
+import locations.PotatoField;
 import utils.Emotions;
-import locations.Locations;
 
 public class Watchman extends Characters {
 
     private boolean isGrabbingSomeone = false;
     private Characters grabbedCharacter;
 
-    public Watchman() {
+    private static final Watchman instance = new Watchman();
+
+    private Watchman() {
         setName("Сторож");
         setEmotion(Emotions.NEUTRAL);
         setCurrentLocationSilently(Lodge.getInstance());
         setNearEntitySilently(new Table());
     }
 
+    public static Watchman getInstance() {
+        return instance;
+    }
+
     public void grubCharacter(Characters character) {
+        setEmotion(Emotions.ANGER);
         grabbedCharacter = character;
+        System.out.println(this + " схватил " + character + " за шиворот");
         isGrabbingSomeone = true;
+        character.setEmotion(Emotions.SURPRISE);
+        character.setEmotion(Emotions.FEAR);
+        character.setNearEntity(null);
     }
 
     public void letGoCharacter() {
+        System.out.println(grabbedCharacter + " удалось вырваться");
         grabbedCharacter = null;
         isGrabbingSomeone = false;
     }
@@ -37,11 +49,21 @@ public class Watchman extends Characters {
 
     @Override
     public void action() {
+        PotatoField field = PotatoField.getInstance();
 
-    }
+        if (!getCurrentLocation().equals(field)) {
+            System.out.println("Ошибка! " + this + " может действовать только на локации " + field);
+            return;
+        }
 
-    @Override
-    public void calculate() {
+        Characters character = field.getCharacters()[0];
 
+        //Мы точно знаем, что если первый элемент является самим сторожем, то на поле если и есть кто-то, то сторож не даст никому ничего сделать
+        if (character.equals(this)) sayMsg("Хм... Видимо показалось.");
+
+        System.out.println(this + " увидел " + character);
+
+        grubCharacter(character);
+        character.calculate();
     }
 }

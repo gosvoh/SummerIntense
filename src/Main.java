@@ -12,8 +12,8 @@ public class Main {
         System.out.println("Сказка:\n");
 
         Locations potatoField = PotatoField.getInstance();
-        Scooperfield scooperfield = new Scooperfield();
-        Watchman watchman = new Watchman();
+        Scooperfield scooperfield = Scooperfield.getInstance();
+        Watchman watchman = Watchman.getInstance();
 
         for (int i = 0, maxIterations = potatoField.getMaxNumberOfCharactersAndEntities(); i < maxIterations; i++)
             potatoField.addEntity(new Bush());
@@ -28,9 +28,10 @@ public class Main {
         scooperfield.setEmotion(Emotions.HAPPINESS);
         scooperfield.sayMsg("Тяжесть - это хорошо, тяжесть - это надёжно");
 
-        watchman.sayMsg("Шо за хрень там на поле?");
         watchman.setEmotion(Emotions.SUSPICIOUS);
+        watchman.sayMsg("Шо за хрень там на поле?");
         watchman.setNearEntity(null);
         watchman.setCurrentLocation(potatoField);
+        watchman.action();
     }
 }

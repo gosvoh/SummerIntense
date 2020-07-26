@@ -35,7 +35,9 @@ public abstract class Characters implements ICharacter {
     /**
      * Мыслительный процесс персонажа
      */
-    public abstract void calculate();
+    public void calculate() {
+
+    }
 
     /**
      * Изменить текущую локацию
@@ -76,6 +78,7 @@ public abstract class Characters implements ICharacter {
      */
     @Override
     public void setEmotion(Emotions emotion) {
+        System.out.println(name + " изменил эмоцию с " + this.emotion.toString() + " на " + emotion.toString());
         this.emotion = emotion;
     }
 
@@ -135,14 +138,14 @@ public abstract class Characters implements ICharacter {
      * @return имя персонажа
      */
     @Override
-    public String getName() {
-        return name;
+    public String getDescription() {
+        return name + " в локации " + currentLocation + " и рядом с объектом " + nearEntity +
+               ", текущая эмоция - " + emotion;
     }
 
     @Override
     public String toString() {
-        return name + " в локации " + currentLocation + " и рядом с объектом " + nearEntity +
-               ", текущая эмоция - " + emotion;
+        return name;
     }
 
     @Override
