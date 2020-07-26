@@ -1,8 +1,9 @@
 package character;
 
 import entity.Table;
+import locations.Lodge;
 import utils.Emotions;
-import utils.Locations;
+import locations.Locations;
 
 public class Watchman extends Characters {
 
@@ -10,10 +11,10 @@ public class Watchman extends Characters {
     private Characters grabbedCharacter;
 
     public Watchman() {
-        name = "Сторож";
-        emotion = Emotions.NEUTRAL;
-        currentLocation = Locations.LODGE;
-        nearEntity = new Table();
+        setName("Сторож");
+        setEmotion(Emotions.NEUTRAL);
+        setCurrentLocationSilently(Lodge.getInstance());
+        setNearEntitySilently(new Table());
     }
 
     public void grubCharacter(Characters character) {
