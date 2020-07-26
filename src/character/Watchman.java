@@ -16,7 +16,8 @@ public class Watchman extends Characters {
         setName("Сторож");
         setEmotion(Emotions.NEUTRAL);
         setCurrentLocationSilently(Lodge.getInstance());
-        setNearEntitySilently(new Table());
+        // Мы знаем что в сторожке всегда есть стол и он первый и единственный
+        setNearEntitySilently(Lodge.getInstance().getEntities()[0]);
     }
 
     public static Watchman getInstance() {

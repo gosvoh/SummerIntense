@@ -1,5 +1,6 @@
 package locations;
 
+import character.Characters;
 import entity.Bush;
 import entity.Entities;
 
@@ -50,6 +51,20 @@ public class PotatoField extends Locations {
         }
         if (entityPointer != 0) --entityPointer;
         sortArray(bushes, iterator);
+    }
+
+    @SuppressWarnings("DuplicatedCode")
+    @Override
+    public String getDescription() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(name).append(":\n");
+        sb.append("Персонажи:\n");
+        Characters[] characters = getCharacters();
+        for (int i = 0; i < characterPointer; i++) sb.append(characters[i]).append("   ");
+        sb.append("\n").append("Объекты: \n");
+        for (int i = 0; i < entityPointer; i++) sb.append(bushes[i]).append("   ");
+
+        return sb.toString();
     }
 
     public Bush[] getBushes() {

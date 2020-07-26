@@ -15,7 +15,8 @@ public class Scooperfield extends Characters {
         setName("Скуперфильд");
         setEmotion(Emotions.NEUTRAL);
         setCurrentLocationSilently(TheOutside.getInstance());
-        setNearEntitySilently(new Table());
+        // Мы знаем что на улице всегда есть стол и он первый и единственный
+        setNearEntitySilently(TheOutside.getInstance().getEntities()[0]);
     }
 
     public static Scooperfield getInstance() {
@@ -46,6 +47,7 @@ public class Scooperfield extends Characters {
         int offset = 0;
         for (int i = 0, bushesLength = field.getEntitiesLength(); i < bushesLength; i++) {
             Bush bush = bushes[i];
+            field.removeEntity(bush);
             System.out.println(this + " выдернул " + bush.getName());
 
             Tubers tubers = bush.getTubers();

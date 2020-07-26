@@ -1,9 +1,7 @@
 import character.Scooperfield;
 import character.Watchman;
 import entity.Bush;
-import locations.Locations;
-import locations.PotatoField;
-import locations.ThicketsOfVine;
+import locations.*;
 import utils.Emotions;
 
 public class Main {
@@ -12,6 +10,7 @@ public class Main {
         System.out.println("Сказка:\n");
 
         Locations potatoField = PotatoField.getInstance();
+
         Scooperfield scooperfield = Scooperfield.getInstance();
         Watchman watchman = Watchman.getInstance();
 
@@ -33,5 +32,11 @@ public class Main {
         watchman.setNearEntity(null);
         watchman.setCurrentLocation(potatoField);
         watchman.action();
+    }
+
+    private static void printDesc(String... strings) {
+        System.out.println("\n----------------------------------------------");
+        for (String string : strings) System.out.println(string);
+        System.out.println("----------------------------------------------\n");
     }
 }

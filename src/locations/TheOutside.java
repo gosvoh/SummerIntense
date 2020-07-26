@@ -1,6 +1,6 @@
 package locations;
 
-import entity.Entities;
+import entity.Table;
 
 public class TheOutside extends Locations {
 
@@ -8,19 +8,10 @@ public class TheOutside extends Locations {
 
     private TheOutside() {
         super("Улица");
+        addEntity(new Table());
     }
 
     public static TheOutside getInstance() {
         return instance;
-    }
-
-    @Override
-    public void addEntity(Entities... entities) {
-
-    }
-
-    @Override
-    public void removeEntity(Entities entity) {
-
     }
 }

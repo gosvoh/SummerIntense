@@ -3,9 +3,8 @@ package locations;
 import character.Characters;
 import entity.Entities;
 
+@SuppressWarnings("DuplicatedCode")
 public abstract class Locations {
-    //todo проверить содержание локаций при каждом изменении
-
     /**
      * Расшифровка локации в виде строки
      */
@@ -51,11 +50,11 @@ public abstract class Locations {
         StringBuilder sb = new StringBuilder();
         sb.append(name).append(":\n");
         sb.append("Персонажи:\n");
-        for (int i = 0; i < characterPointer; i++) sb.append(characters[i].getDescription()).append("   ");
+        for (int i = 0; i < characterPointer; i++) sb.append(characters[i]).append("   ");
         sb.append("\n").append("Объекты: \n");
-        for (int i = 0; i < entityPointer; i++) sb.append(entities[i].getName()).append("   ");
+        for (int i = 0; i < entityPointer; i++) sb.append(entities[i]).append("   ");
 
-        return sb.toString();
+        return sb.append("\n").toString();
     }
 
     /**
@@ -179,7 +178,7 @@ public abstract class Locations {
      */
     protected void sortArray(Object[] array, int pointer) {
         for (int i = pointer; i < array.length; i++) {
-            if (array[i] == null) if (array[i + 1] == null) break;
+            if (array[i] == null) if (i == array.length - 1 || array[i + 1] == null) break;
             else {
                 array[i] = array[i + 1];
                 array[i + 1] = null;
