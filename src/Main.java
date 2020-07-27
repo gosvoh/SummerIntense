@@ -32,6 +32,8 @@ public class Main {
         watchman.setNearEntity(null);
         watchman.setCurrentLocation(potatoField);
         watchman.action();
+
+        System.out.println("\nКонец!");
     }
 
     private static void printDesc(String... strings) {
