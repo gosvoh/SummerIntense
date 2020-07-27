@@ -33,6 +33,7 @@ public class Main {
         watchman.setCurrentLocation(potatoField);
         watchman.action();
 
+        System.out.println("\n");
         System.out.println("\nКонец!");
     }
 
