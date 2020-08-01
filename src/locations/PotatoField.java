@@ -6,7 +6,7 @@ import entity.Entities;
 
 public class PotatoField extends Locations {
 
-    private Bush[] bushes = new Bush[maxNumberOfCharactersAndEntities];
+    private Bush[] bushes;
 
     private static final PotatoField instance = new PotatoField();
 
@@ -22,6 +22,7 @@ public class PotatoField extends Locations {
     @SuppressWarnings("DuplicatedCode")
     @Override
     public void addEntity(Entities... entities) {
+        if (bushes == null) bushes = new Bush[maxNumberOfCharactersAndEntities];
         if (entityPointer == maxNumberOfCharactersAndEntities || (entities.length + entityPointer) > maxNumberOfCharactersAndEntities) {
             System.out.println("Слишком много объектов в локации, нельзя добавить новый объект!");
             return;
