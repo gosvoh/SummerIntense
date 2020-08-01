@@ -1,6 +1,6 @@
 package character;
 
-import exceptions.NonCorrectLocation;
+import exceptions.NonCorrectLocationException;
 import locations.Lodge;
 import locations.PotatoField;
 
@@ -48,10 +48,10 @@ public class Watchman extends Characters {
     }
 
     @Override
-    public void action() throws NonCorrectLocation {
+    public void action() throws NonCorrectLocationException {
         PotatoField field = PotatoField.getInstance();
 
-        if (!getCurrentLocation().equals(field)) throw new NonCorrectLocation(this, field);
+        if (!getCurrentLocation().equals(field)) throw new NonCorrectLocationException(this, field);
 
         Characters character = field.getCharacters()[0];
 
