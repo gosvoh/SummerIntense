@@ -1,12 +1,38 @@
 package character;
 
 import entity.IEntity;
-import utils.Emotions;
 import locations.Locations;
 
 import java.util.Objects;
 
 public abstract class Characters implements ICharacter {
+
+    /**
+     * Вложенный класс перечислений, отвечающий за эмоции
+     */
+    public enum Emotions {
+        ANGER("Злость"),
+        SURPRISE("Удивление"),
+        FEAR("Страх"),
+        NEUTRAL("Нейтральное"),
+        SUSPICIOUS("Подозрительность"),
+        HAPPINESS("Радость");
+
+        /**
+         * Расшифровка эмоции в виде строки
+         */
+        private final String emotion;
+
+        Emotions(String emotion) {
+            this.emotion = emotion;
+        }
+
+        @Override
+        public String toString() {
+            return emotion;
+        }
+    }
+
     /**
      * Имя персонажа
      */

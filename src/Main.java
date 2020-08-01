@@ -1,8 +1,10 @@
+import character.Characters;
 import character.Scooperfield;
 import character.Watchman;
 import entity.Bush;
-import locations.*;
-import utils.Emotions;
+import locations.Locations;
+import locations.PotatoField;
+import locations.ThicketsOfVine;
 
 //todo checked exception
 //todo unchecked exception
@@ -31,10 +33,10 @@ public class Main {
         System.out.print("И затем ");
         scooperfield.setCurrentLocation(potatoField);
         scooperfield.action();
-        scooperfield.setEmotion(Emotions.HAPPINESS);
+        scooperfield.setEmotion(Characters.Emotions.HAPPINESS);
         scooperfield.sayMsg("Тяжесть - это хорошо, тяжесть - это надёжно");
 
-        watchman.setEmotion(Emotions.SUSPICIOUS);
+        watchman.setEmotion(Characters.Emotions.SUSPICIOUS);
         watchman.sayMsg("Шо за хрень там на поле?");
         watchman.setNearEntity(null);
         watchman.setCurrentLocation(potatoField);

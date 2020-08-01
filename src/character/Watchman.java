@@ -1,9 +1,7 @@
 package character;
 
-import entity.Table;
 import locations.Lodge;
 import locations.PotatoField;
-import utils.Emotions;
 
 public class Watchman extends Characters {
 

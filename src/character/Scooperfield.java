@@ -1,10 +1,11 @@
 package character;
 
-import entity.*;
+import entity.Bucket;
+import entity.Bush;
+import entity.Potato;
+import entity.Tubers;
 import locations.PotatoField;
 import locations.TheOutside;
-import utils.Emotions;
-import locations.Locations;
 
 public class Scooperfield extends Characters {
 

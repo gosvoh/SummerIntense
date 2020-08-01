@@ -1,12 +1,11 @@
 package character;
 
 import entity.IEntity;
-import utils.Emotions;
 
 public interface ICharacter {
 
-    Emotions getEmotion();
-    void setEmotion(Emotions emotion);
+    Characters.Emotions getEmotion();
+    void setEmotion(Characters.Emotions emotion);
 
     IEntity getNearEntity();
     void setNearEntity(IEntity entity);
