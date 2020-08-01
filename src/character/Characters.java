@@ -1,6 +1,7 @@
 package character;
 
 import entity.IEntity;
+import exceptions.NonCorrectLocationException;
 import locations.Locations;
 
 import java.util.Objects;
@@ -56,7 +57,7 @@ public abstract class Characters implements ICharacter {
     /**
      * Действие персонажа
      */
-    public abstract void action();
+    public abstract void action() throws NonCorrectLocationException;
 
     /**
      * Мыслительный процесс персонажа
