@@ -1,9 +1,14 @@
 package entity;
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class Tubers extends Entities {
+
+    public class Potato extends Entities {
+        public Potato() {
+            super("Картофель");
+        }
+    }
 
     private Potato[] potatoes;
 

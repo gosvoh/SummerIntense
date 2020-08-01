@@ -1,23 +1,23 @@
 package entity;
 
 public class Bucket extends Entities {
-    private int volume = 8;
-    private Potato[] potatoes;
+    private final int volume = 8;
+    private Tubers.Potato[] potatoes;
 
     public Bucket() {
         super("Цилиндр");
-        potatoes = new Potato[volume];
+        potatoes = new Tubers.Potato[volume];
     }
 
     public int getVolume() {
         return volume;
     }
 
-    public Potato[] getPotatoes() {
+    public Tubers.Potato[] getPotatoes() {
         return potatoes;
     }
 
-    public void setPotatoes(Potato[] potatoes) {
+    public void setPotatoes(Tubers.Potato[] potatoes) {
         this.potatoes = potatoes;
     }
 }

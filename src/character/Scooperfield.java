@@ -2,7 +2,6 @@ package character;
 
 import entity.Bucket;
 import entity.Bush;
-import entity.Potato;
 import entity.Tubers;
 import exceptions.EmptyFieldException;
 import exceptions.NonCorrectLocationException;
@@ -40,7 +39,7 @@ public class Scooperfield extends Characters {
         Bush[] bushes = field.getBushes();
         if (bushes[0] == null) throw new EmptyFieldException();
 
-        Potato[] potatoesToBucket = new Potato[bucket.getVolume()];
+        Tubers.Potato[] potatoesToBucket = new Tubers.Potato[bucket.getVolume()];
         int offset = 0;
         for (int i = 0, bushesLength = field.getEntitiesLength(); i < bushesLength; i++) {
             Bush bush = bushes[i];
@@ -48,7 +47,7 @@ public class Scooperfield extends Characters {
             System.out.println(this + " выдернул " + bush.getName());
 
             Tubers tubers = bush.getTubers();
-            Potato[] potatoes = tubers.removePotatoes();
+            Tubers.Potato[] potatoes = tubers.removePotatoes();
             System.out.println(this + " отделил от " + bush.getName() + " " + potatoes[0].getName() + " в количестве " + potatoes.length);
 
             if (potatoes.length + offset <= potatoesToBucket.length)
