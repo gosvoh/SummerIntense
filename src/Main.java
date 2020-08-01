@@ -4,6 +4,13 @@ import entity.Bush;
 import locations.*;
 import utils.Emotions;
 
+//todo checked exception
+//todo unchecked exception
+//todo local class
+//todo anon class
+//todo inner static class
+//todo inner non-static class
+
 public class Main {
 
     public static void main(String[] args) {
