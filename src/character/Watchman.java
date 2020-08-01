@@ -1,5 +1,6 @@
 package character;
 
+import exceptions.NonCorrectLocation;
 import locations.Lodge;
 import locations.PotatoField;
 
@@ -47,18 +48,18 @@ public class Watchman extends Characters {
     }
 
     @Override
-    public void action() {
+    public void action() throws NonCorrectLocation {
         PotatoField field = PotatoField.getInstance();
 
-        if (!getCurrentLocation().equals(field)) {
-            System.out.println("Ошибка! " + this + " может действовать только на локации " + field);
-            return;
-        }
+        if (!getCurrentLocation().equals(field)) throw new NonCorrectLocation(this, field);
 
         Characters character = field.getCharacters()[0];
 
         //Мы точно знаем, что если первый элемент является самим сторожем, то на поле если и есть кто-то, то сторож не даст никому ничего сделать
-        if (character.equals(this)) sayMsg("Хм... Видимо показалось.");
+        if (character.equals(this)) {
+            sayMsg("Хм... Видимо показалось.");
+            return;
+        }
 
         System.out.println(this + " увидел " + character);
 
