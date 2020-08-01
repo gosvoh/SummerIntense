@@ -10,7 +10,6 @@ import locations.ThicketsOfVine;
 //todo unchecked exception
 //todo local class
 //todo anon class
-//todo inner static class
 //todo inner non-static class
 
 public class Main {
