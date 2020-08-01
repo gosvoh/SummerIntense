@@ -4,6 +4,8 @@ import entity.Bucket;
 import entity.Bush;
 import entity.Potato;
 import entity.Tubers;
+import exceptions.EmptyFieldException;
+import exceptions.NonCorrectLocationException;
 import locations.PotatoField;
 import locations.TheOutside;
 
@@ -25,13 +27,10 @@ public class Scooperfield extends Characters {
     }
 
     @Override
-    public void action() {
+    public void action() throws NonCorrectLocationException {
         PotatoField field = PotatoField.getInstance();
 
-        if (!getCurrentLocation().equals(field)) {
-            System.out.println("Ошибка! " + this + " может действовать только на локации " + field);
-            return;
-        }
+        if (!getCurrentLocation().equals(field)) throw new NonCorrectLocationException(this, field);
 
         if (field.getCharacters()[0].equals(Watchman.getInstance())) sayMsg("Нееее, я не идиот при стороже воровать");
 
@@ -39,10 +38,7 @@ public class Scooperfield extends Characters {
         setNearEntity(bucket);
 
         Bush[] bushes = field.getBushes();
-        if (bushes == null) {
-            System.out.println("Поле пустое!");
-            return;
-        }
+        if (bushes == null) throw new EmptyFieldException();
 
         Potato[] potatoesToBucket = new Potato[bucket.getVolume()];
         int offset = 0;
