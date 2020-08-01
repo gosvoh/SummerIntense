@@ -38,7 +38,7 @@ public class Scooperfield extends Characters {
         setNearEntity(bucket);
 
         Bush[] bushes = field.getBushes();
-        if (bushes == null) throw new EmptyFieldException();
+        if (bushes[0] == null) throw new EmptyFieldException();
 
         Potato[] potatoesToBucket = new Potato[bucket.getVolume()];
         int offset = 0;
